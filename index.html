@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Access</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0e;
+      color: #e8e6de;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .box {
+      background: #1a1a17;
+      border: 1px solid #2a2a27;
+      border-radius: 12px;
+      padding: 32px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+    p {
+      color: #9c9a93;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #2a2a27;
+      background: #111;
+      color: #fff;
+      margin-bottom: 14px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #1D9E75;
+      color: black;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.95;
+    }
+    .error {
+      margin-top: 12px;
+      color: #D85A30;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Valterra Access</h1>
+    <p>Enter password to view the dashboard.</p>
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="checkPassword()">Enter</button>
+    <div class="error" id="error">Wrong password</div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const correctPassword = "YOURPASSWORDHERE";
+
+      if (password === correctPassword) {
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+
+    document.getElementById("password").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        checkPassword();
+      }
+    });
+  </script>
+</body>
+</html>
